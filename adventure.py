@@ -57,7 +57,7 @@ class AdventureGame:
         room = self.map[self.current_room]
         print(f"> {room['name']}\n")
         print(room['desc'])
-        if 'items' in room:
+        if 'items' in room and room['items']:
             print("\nItems:", ", ".join(room['items']))
         print("\nExits:", " ".join(room['exits'].keys()), "\n")
 
@@ -97,7 +97,7 @@ class AdventureGame:
 
     def show_inventory(self):
         if self.inventory:
-            print("You are carrying:", ", ".join(self.inventory))
+            print("Inventory:\n", ", ".join(self.inventory))
         else:
             print("You're not carrying anything.")
 
