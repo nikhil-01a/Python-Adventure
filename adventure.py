@@ -4,15 +4,49 @@ import sys
 
 class AdventureGame:
     def __init__(self, map_file):
-        with open(map_file, 'r') as file:
-            self.map = json.load(file)
+        self.map = self.load_map(map_file)
+        if self.map is None:
+            raise ValueError("Invalid map file.")
         self.current_room = 0
         self.inventory = []
 
+    def load_map(self, map_file):
+        try:
+            with open(map_file, 'r') as file:
+                game_map = json.load(file)
+            # Validation part
+            if not self.validate_map(game_map):
+                print("Map validation failed.")
+                return None
+            return game_map
+        except json.JSONDecodeError:
+            print("Error reading map file. Please ensure it's valid JSON.")
+            return None
+
+    def validate_map(self, game_map):
+        if not isinstance(game_map, list):
+            return False
+
+        for room_id, room in enumerate(game_map):
+            # Check for name, desc, and exits in each room
+            if not all(key in room for key in ["name", "desc", "exits"]):
+                return False
+
+            # Check if exits are valid
+            for exit_direction, exit_room_id in room["exits"].items():
+                if not isinstance(exit_room_id, int) or exit_room_id < 0 or exit_room_id >= len(game_map):
+                    return False
+
+        return True
+
     def start(self):
+        self.show_current_room()
         while True:
-            self.show_current_room()
-            command = input("What would you like to do? ").strip().lower()
+            try:
+                command = input("What would you like to do? ").strip().lower()
+            except EOFError:
+                print("\nUse 'quit' to exit.")
+                continue
             if command == "quit":
                 print("Goodbye!")
                 break
@@ -23,13 +57,18 @@ class AdventureGame:
         room = self.map[self.current_room]
         print(f"\n> {room['name']}\n")
         print(room['desc'])
-        print("\nExits:", " ".join(room['exits'].keys()))
         if 'items' in room:
-            print("\nItems in the room:", ", ".join(room['items']))
+            print("\nItems:", ", ".join(room['items']))
+        print("\nExits:", " ".join(room['exits'].keys()))
 
     def process_command(self, command):
         if command.startswith("go "):
             self.go(command[3:])
+            self.show_current_room()
+        elif command == "go":
+            print("Sorry, you need to 'go' somewhere.")
+        elif command == "get":
+            print("Sorry, you need to 'get' something.")
         elif command == "look":
             self.show_current_room()
         elif command.startswith("get "):
@@ -54,7 +93,7 @@ class AdventureGame:
             room['items'].remove(item)
             print(f"You pick up the {item}.")
         else:
-            print(f"There's no {item} to get.")
+            print(f"There's no {item} anywhere.")
 
     def show_inventory(self):
         if self.inventory:
