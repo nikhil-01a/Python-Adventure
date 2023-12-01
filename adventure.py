@@ -55,16 +55,15 @@ class AdventureGame:
 
     def show_current_room(self):
         room = self.map[self.current_room]
-        print(f"\n> {room['name']}\n")
+        print(f"> {room['name']}\n")
         print(room['desc'])
         if 'items' in room:
             print("\nItems:", ", ".join(room['items']))
-        print("\nExits:", " ".join(room['exits'].keys()))
+        print("\nExits:", " ".join(room['exits'].keys()), "\n")
 
     def process_command(self, command):
         if command.startswith("go "):
             self.go(command[3:])
-            self.show_current_room()
         elif command == "go":
             print("Sorry, you need to 'go' somewhere.")
         elif command == "get":
@@ -82,7 +81,8 @@ class AdventureGame:
         current_exits = self.map[self.current_room]['exits']
         if direction in current_exits:
             self.current_room = current_exits[direction]
-            print(f"You go {direction}.")
+            print(f"You go {direction}.\n")
+            self.show_current_room()
         else:
             print(f"There's no way to go {direction}.")
 
