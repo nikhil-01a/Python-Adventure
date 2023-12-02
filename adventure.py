@@ -62,20 +62,73 @@ class AdventureGame:
         print("\nExits:", " ".join(room['exits'].keys()), "\n")
 
     def process_command(self, command):
-        if command.startswith("go "):
-            self.go(command[3:])
-        elif command == "go":
-            print("Sorry, you need to 'go' somewhere.")
-        elif command == "get":
-            print("Sorry, you need to 'get' something.")
-        elif command == "look":
-            self.show_current_room()
-        elif command.startswith("get "):
-            self.get(command[4:])
-        elif command == "inventory":
+        command_parts = command.split()
+        if not command_parts:
+            print("Print enter a command.")
+            return
+
+        action = command_parts[0]
+        args = command_parts[1:]
+
+        if self.is_command(action, "go") and args:
+            self.process_direction(args)
+        elif self.is_command(action, "get") and args:
+            self.process_item(args)
+        elif self.is_command(action, "inventory"):
             self.show_inventory()
+        elif self.is_command(action, "look"):
+            self.show_current_room()
         else:
             print("I don't understand that command.")
+
+    def is_command(self, action, command):
+        return command.startswith(action)
+
+    def process_direction(self, args):
+        if not args:
+            print("Sorry, you need to 'go' somewhere.")
+            return
+
+        direction = args[0]
+        current_exits = self.map[self.current_room]['exits']
+        matching_exits = [
+            exit for exit in current_exits if exit.startswith(direction)]
+
+        if len(matching_exits) == 1:
+            self.go(matching_exits[0])
+        elif len(matching_exits) > 1:
+            if direction in matching_exits:
+                # Direct match, no ambiguity
+                self.go(direction)
+            else:
+                # Ambiguity exists, ask for clarification
+                print(f"Did you want to go {' or '.join(matching_exits)}?")
+        else:
+            print(f"There's no way to go {' '.join(args)}.")
+
+    def find_matching_exits(self, partial):
+        current_exits = self.map[self.current_room]['exits']
+        return [exit for exit in current_exits if exit.startswith(partial)]
+
+    def process_item(self, args):
+        if not args:
+            print("Sorry, you need to 'get' something.")
+            return
+        room = self.map[self.current_room]
+        if 'items' in room:
+            matching_items = self.find_matching_items(
+                ' '.join(args), room['items'])
+            if len(matching_items) == 1:
+                self.get(matching_items[0])
+            elif len(matching_items) > 1:
+                print(f"Did you want to get {' or '.join(matching_items)}?")
+            else:
+                print(f"There's no {' '.join(args)} anywhere.")
+        else:
+            print("There are no items to get here.")
+
+    def find_matching_items(self, partial, items):
+        return [item for item in items if partial in item]
 
     def go(self, direction):
         current_exits = self.map[self.current_room]['exits']
@@ -97,7 +150,9 @@ class AdventureGame:
 
     def show_inventory(self):
         if self.inventory:
-            print("Inventory:\n", ", ".join(self.inventory))
+            print("Inventory:")
+            for item in reversed(self.inventory):
+                print(f"  {item}")
         else:
             print("You're not carrying anything.")
 
