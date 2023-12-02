@@ -142,7 +142,8 @@ class AdventureGame:
     def get(self, item):
         room = self.map[self.current_room]
         if 'items' in room and item in room['items']:
-            self.inventory.append(item)
+            # Inserting the item at the beginning of the list
+            self.inventory.insert(0, item)
             room['items'].remove(item)
             print(f"You pick up the {item}.")
         else:
@@ -151,7 +152,7 @@ class AdventureGame:
     def show_inventory(self):
         if self.inventory:
             print("Inventory:")
-            for item in reversed(self.inventory):
+            for item in self.inventory:
                 print(f"  {item}")
         else:
             print("You're not carrying anything.")
