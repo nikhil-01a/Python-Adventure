@@ -9,6 +9,15 @@ class AdventureGame:
             raise ValueError("Invalid map file.")
         self.current_room = 0
         self.inventory = []
+        self.commands = [
+            ("go", self.process_direction),
+            ("get", self.process_item),
+            ("look", self.show_current_room),
+            ("inventory", self.show_inventory),
+            ("quit", self.quit_game),
+            ("drop", self.drop_item),
+            ("help", self.show_help)
+        ]
 
     def load_map(self, map_file):
         try:
@@ -64,22 +73,34 @@ class AdventureGame:
     def process_command(self, command):
         command_parts = command.split()
         if not command_parts:
-            print("Print enter a command.")
+            print("Please enter a command.")
             return
 
         action = command_parts[0]
         args = command_parts[1:]
 
-        if self.is_command(action, "go") and args:
-            self.process_direction(args)
-        elif self.is_command(action, "get") and args:
-            self.process_item(args)
-        elif self.is_command(action, "inventory"):
-            self.show_inventory()
-        elif self.is_command(action, "look"):
-            self.show_current_room()
-        else:
-            print("I don't understand that command.")
+        for cmd, method in self.commands:
+            if self.is_command(action, cmd):
+                # Check if the method requires additional arguments
+                if cmd in ["go", "get", "drop"]:
+                    method(args)
+                else:
+                    method()  # For commands like 'look', 'inventory', etc. that don't need args
+                return
+
+        print("I don't understand that command.")
+
+    def show_help(self, _):
+        print("You can run the following commands:")
+        for command, _ in self.commands:
+            if command == "go" or command == "get":
+                print(f"  {command} ...")
+            else:
+                print(f"  {command}")
+
+    def quit_game(self, _):
+        print("Goodbye!")
+        sys.exit(0)
 
     def is_command(self, action, command):
         return command.startswith(action)
@@ -156,6 +177,21 @@ class AdventureGame:
                 print(f"  {item}")
         else:
             print("You're not carrying anything.")
+
+    def drop_item(self, args):
+        if not args:
+            print("Sorry, you need to 'drop' something.")
+            return
+
+        item_to_drop = ' '.join(args)
+        if item_to_drop in self.inventory:
+            self.inventory.remove(item_to_drop)
+            if 'items' not in self.map[self.current_room]:
+                self.map[self.current_room]['items'] = []
+            self.map[self.current_room]['items'].append(item_to_drop)
+            print(f"You dropped the {item_to_drop}.")
+        else:
+            print(f"You don't have a {item_to_drop} to drop.")
 
 
 def main():
