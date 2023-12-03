@@ -10,15 +10,15 @@ I used the pomodoro technique just like previous assignment to estimate the time
 
 # Description of how I tested the code
 
-Commands:
+### Commands:
 
 1. To run testcases using test harness:
 
-### python test.py
+#### python test.py
 
 2. To run the program with my custom map called 'quest.map':
 
-### python adventure.py quest.map
+#### python adventure.py quest.map
 
 I made use of the skills I gained from the test harness project and customized it to fit the needs of this project. Then, I went ahead and wrote test casses for each verb.
 
@@ -57,13 +57,13 @@ I have written testcases to test each extension. You will find the testcases in 
 2. help : 'adventure.help.in' and 'adventure.help.out'
 3. drop : 'adventure.drop.in' and 'adventure.drop.out'
 
-Command to run all the testcases:
+### Command to run all the testcases:
 
-### python test.py
+#### python test.py
 
 Apart from test cases one can run the program with my map 'quest.map':
 
-### python adventure.py quest.map
+#### python adventure.py quest.map
 
 and try commands like the below for each when the program is running:
 
@@ -71,7 +71,7 @@ and try commands like the below for each when the program is running:
 2. help : 'help'
 3. drop : 'drop compass' and then 'look' to see the dropped item in the room
 
-## A new map file that uses every extension (as applicable—help doesn’t affect the map)
+# A new map file that uses every extension (as applicable—help doesn’t affect the map)
 
 The new map file that i wrote is called "quest.map" and it is situated in the root directory of the project. Every extension verb works with this map without any issue. Obviously, the default verbs are applicable to this map as well.
 This 'quest.map' map file has 6 rooms in it.
