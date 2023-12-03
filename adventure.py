@@ -68,7 +68,7 @@ class AdventureGame:
         print(room['desc'])
         if 'items' in room and room['items']:
             print("\nItems:", ", ".join(room['items']))
-        print("\nExits:", " ".join(room['exits'].keys()), "\n")
+        print(f"\nExits: {' '.join(room['exits'].keys())}\n")
 
     def process_command(self, command):
         command_parts = command.split()
