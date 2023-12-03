@@ -1,0 +1,7 @@
+go east
+get compass
+look
+go west
+drop compass
+look
+quit

@@ -1,10 +1,10 @@
 inventory
-get rose
+get compass
 go east
-get rose
+get compass
 inventory
 go north
 inventory
-get rose
+get compass
 get
 quit

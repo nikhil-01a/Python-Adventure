@@ -1,0 +1,12 @@
+go s    
+go sout
+go south
+go east
+go east
+get deck
+get b
+get be
+get ban
+get band
+inv
+quit

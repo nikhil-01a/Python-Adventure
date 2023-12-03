@@ -7,7 +7,7 @@ import glob
 def run_test(prog, test_name):
     input_file = f"test/{prog}.{test_name}.in"
     expected_output_file = f"test/{prog}.{test_name}.out"
-    map_file = "loop.map"
+    map_file = "quest.map"
 
     with open(input_file, 'r') as infile:
         command = ['python', f'{prog}.py', map_file]

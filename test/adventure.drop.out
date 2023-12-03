@@ -4,12 +4,6 @@ The room glows with a soft, yellow hue, warm and inviting.
 
 Exits: south east southeast
 
-What would you like to do? > A yellow room
-
-The room glows with a soft, yellow hue, warm and inviting.
-
-Exits: south east southeast
-
 What would you like to do? You go east.
 
 > A turquoise room
@@ -20,12 +14,30 @@ Items: key, compass
 
 Exits: west south
 
+What would you like to do? You pick up the compass.
 What would you like to do? > A turquoise room
 
 This room is lively, painted in vibrant shades of turquoise.
 
-Items: key, compass
+Items: key
 
 Exits: west south
+
+What would you like to do? You go west.
+
+> A yellow room
+
+The room glows with a soft, yellow hue, warm and inviting.
+
+Exits: south east southeast
+
+What would you like to do? You dropped the compass.
+What would you like to do? > A yellow room
+
+The room glows with a soft, yellow hue, warm and inviting.
+
+Items: compass
+
+Exits: south east southeast
 
 What would you like to do? Goodbye!

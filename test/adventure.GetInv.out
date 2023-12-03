@@ -1,34 +1,27 @@
-> A white room
+> A yellow room
 
-You are in a simple room with white walls.
+The room glows with a soft, yellow hue, warm and inviting.
 
-Exits: north east
+Exits: south east southeast
 
 What would you like to do? You're not carrying anything.
-What would you like to do? There's no rose anywhere.
+What would you like to do? There's no compass anywhere.
 What would you like to do? You go east.
 
-> A red room
+> A turquoise room
 
-This room is fancy. It's red!
+This room is lively, painted in vibrant shades of turquoise.
 
-Items: rose
-
-Exits: north west
-
-What would you like to do? You pick up the rose.
-What would you like to do? Inventory:
-  rose
-What would you like to do? You go north.
-
-> A green room
-
-You are in a simple room, with bright green walls.
+Items: key, compass
 
 Exits: west south
 
+What would you like to do? You pick up the compass.
 What would you like to do? Inventory:
-  rose
-What would you like to do? There's no rose anywhere.
+  compass
+What would you like to do? There's no way to go north.
+What would you like to do? Inventory:
+  compass
+What would you like to do? There's no compass anywhere.
 What would you like to do? Sorry, you need to 'get' something.
 What would you like to do? Goodbye!

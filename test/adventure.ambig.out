@@ -1,0 +1,44 @@
+> A yellow room
+
+The room glows with a soft, yellow hue, warm and inviting.
+
+Exits: south east southeast
+
+What would you like to do? Did you want to go south or southeast?
+What would you like to do? Did you want to go south or southeast?
+What would you like to do? You go south.
+
+> A violet room
+
+Surrounded by violet walls, the room exudes a calm and soothing atmosphere.
+
+Exits: north east
+
+What would you like to do? You go east.
+
+> A silver room
+
+Metallic silver walls give this room a futuristic feel.
+
+Exits: north west east
+
+What would you like to do? You go east.
+
+> An emerald room
+
+Emerald green colors make this room feel like a lush forest.
+
+Items: map, binoculars, banana, bandana, bellows, deck of cards
+
+Exits: west south
+
+What would you like to do? You pick up the deck of cards.
+What would you like to do? Did you want to get binoculars or banana or bandana or bellows?
+What would you like to do? You pick up the bellows.
+What would you like to do? Did you want to get banana or bandana?
+What would you like to do? You pick up the bandana.
+What would you like to do? Inventory:
+  bandana
+  bellows
+  deck of cards
+What would you like to do? Goodbye!

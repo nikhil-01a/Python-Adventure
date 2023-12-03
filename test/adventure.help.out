@@ -4,4 +4,12 @@ The room glows with a soft, yellow hue, warm and inviting.
 
 Exits: south east southeast
 
+What would you like to do? You can run the following commands:
+  go ...
+  get ...
+  look
+  inventory
+  quit
+  drop
+  help
 What would you like to do? Goodbye!

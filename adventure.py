@@ -90,7 +90,7 @@ class AdventureGame:
 
         print("I don't understand that command.")
 
-    def show_help(self, _):
+    def show_help(self):
         print("You can run the following commands:")
         for command, _ in self.commands:
             if command == "go" or command == "get":

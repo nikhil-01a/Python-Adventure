@@ -1,0 +1,35 @@
+[
+    {
+        "name": "A yellow room",
+        "desc": "The room glows with a soft, yellow hue, warm and inviting.",
+        "exits": { "south": 1, "east": 2, "southeast":3 }
+    },
+    {
+        "name": "A violet room",
+        "desc": "Surrounded by violet walls, the room exudes a calm and soothing atmosphere.",
+        "exits": { "north": 0, "east": 3 }
+    },
+    {
+        "name": "A turquoise room",
+        "desc": "This room is lively, painted in vibrant shades of turquoise.",
+        "exits": { "west": 0, "south": 3 },
+        "items": ["key", "compass"]
+    },
+    {
+        "name": "A silver room",
+        "desc": "Metallic silver walls give this room a futuristic feel.",
+        "exits": { "north": 2, "west": 1, "east": 4 }
+    },
+    {
+        "name": "An emerald room",
+        "desc": "Emerald green colors make this room feel like a lush forest.",
+        "exits": { "west": 3, "south": 5 },
+        "items": ["map", "binoculars","banana", "bandana", "bellows", "deck of cards"]
+    },
+    {
+        "name": "A ruby room",
+        "desc": "Rich ruby reds adorn the walls, giving a sense of royal elegance.",
+        "exits": { "north": 4 },
+        "items": ["candle", "locket", "book"]
+    }
+]

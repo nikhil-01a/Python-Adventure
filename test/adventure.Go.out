@@ -1,35 +1,35 @@
-> A white room
+> A yellow room
 
-You are in a simple room with white walls.
+The room glows with a soft, yellow hue, warm and inviting.
 
-Exits: north east
+Exits: south east southeast
 
 What would you like to do? There's no way to go west.
 What would you like to do? Sorry, you need to 'go' somewhere.
-What would you like to do? You go north.
-
-> A blue room
-
-This room is simple, too, but with blue walls.
-
-Exits: east south
-
 What would you like to do? You go south.
 
-> A white room
+> A violet room
 
-You are in a simple room with white walls.
+Surrounded by violet walls, the room exudes a calm and soothing atmosphere.
 
 Exits: north east
 
+What would you like to do? You go north.
+
+> A yellow room
+
+The room glows with a soft, yellow hue, warm and inviting.
+
+Exits: south east southeast
+
 What would you like to do? You go east.
 
-> A red room
+> A turquoise room
 
-This room is fancy. It's red!
+This room is lively, painted in vibrant shades of turquoise.
 
-Items: rose
+Items: key, compass
 
-Exits: north west
+Exits: west south
 
 What would you like to do? Goodbye!
