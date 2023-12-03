@@ -1,1 +1,10 @@
+inventory
+get rose
+go east
+get rose
+inventory
+go north
+inventory
+get rose
+get
 quit

@@ -146,7 +146,7 @@ class AdventureGame:
             else:
                 print(f"There's no {' '.join(args)} anywhere.")
         else:
-            print("There are no items to get here.")
+            print(f"There's no {args[0]} anywhere.")
 
     def find_matching_items(self, partial, items):
         return [item for item in items if partial in item]
