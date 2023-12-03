@@ -1,0 +1,35 @@
+> A white room
+
+You are in a simple room with white walls.
+
+Exits: north east
+
+What would you like to do? There's no way to go west.
+What would you like to do? Sorry, you need to 'go' somewhere.
+What would you like to do? You go north.
+
+> A blue room
+
+This room is simple, too, but with blue walls.
+
+Exits: east south
+
+What would you like to do? You go south.
+
+> A white room
+
+You are in a simple room with white walls.
+
+Exits: north east
+
+What would you like to do? You go east.
+
+> A red room
+
+This room is fancy. It's red!
+
+Items: rose
+
+Exits: north west
+
+What would you like to do? Goodbye!
